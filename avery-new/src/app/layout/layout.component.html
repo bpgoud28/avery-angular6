@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="row m-0">
+  <div class="col-2 side-nav" [ngClass]="leftNavActiveClass">
+    <app-leftnav></app-leftnav></div>
+  <div class="col-10">
+    <div class="leftnav-toggle-btn">
+      <a href="javascript:void(0)" (click)="navClassChange()"><i class="fa" [ngClass]="leftnavArrowClass" ></i></a>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>
+

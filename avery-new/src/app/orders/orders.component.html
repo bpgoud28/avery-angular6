@@ -1,0 +1,105 @@
+<div class="orders-container">
+  <h3 class="pl-2">Orders</h3>
+  <div class="tabbable-panel">
+    <div class="tabbable-line">
+      <ul class="nav nav-tabs mt-2 pl-4">
+        <li class="pb-1 active">
+          <a href="javascript:void(0)">My Orders</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="search p-2">
+            <form class="form-inline">
+              <div class="search-input mr-4">
+                <input type="text" class="form-control w-100" placeholder="Search by order, facroty">
+                <i class="fa fa-search search-icon"></i>
+              </div>
+              <select class="form-control mr-4">
+                <option>Showing all recordes</option>
+                <option>Open orders</option>
+                <option>Selected Orders</option>
+              </select>
+
+              <input class="form-control"
+                  placeholder="Select Perod"
+                  name="dp"
+                  ngbDatepicker
+                  #d="ngbDatepicker"
+                  [navigation]="false"
+                  (click)="d.toggle()">
+            </form>
+          </div>
+
+          <div class="mt-3">
+            <table class="table table-grid mb-0" [mfData]="orders" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="" checked>
+                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                      </label>
+                    </div>
+                  </th>
+                  <th scope="col"><mfDefaultSorter by="taskType">P.O No</mfDefaultSorter></th>
+                  <th scope="col"><mfDefaultSorter by="taskType">Order On <i class="fa fa-sort"></i></mfDefaultSorter></th>
+                  <th scope="col"><mfDefaultSorter by="taskType">RBO <i class="fa fa-sort"></i></mfDefaultSorter></th>
+                  <th scope="col"><mfDefaultSorter by="taskType">Customer Requested Date <i class="fa fa-sort"></i></mfDefaultSorter></th>
+                  <th scope="col"><mfDefaultSorter by="taskType">Estimated Date <i class="fa fa-sort"></i></mfDefaultSorter></th>
+                  <th scope="col"><mfDefaultSorter by="taskType">Order Status <i class="fa fa-filter"></i></mfDefaultSorter></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of mf.data; let i = index;">
+                  <td>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="" checked>
+                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>{{ order.orderNo }}</td>
+                  <td>{{ order.orderOn }}</td>
+                  <td>{{ order.RBO }}</td>
+                  <td>{{ order.customerRequestDate }}</td>
+                  <td>{{ order.estimatedShipDate }}</td>
+                  <td>
+                    <span *ngIf="order.orderStatus == 'Production Open'"><i class="fa fa-clock-o"></i></span> {{ order.orderStatus }}</td>
+                  <td><a class="btn btn-primary button-danger float-right" [routerLink]="['/orders/orderDetails/', order.id]" href="javascript:void(0)">
+                    View Details </a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="10">
+                    <mfBootstrapPaginator ></mfBootstrapPaginator>
+                    <div class="float-right"><i class="fa fa-angle-left"></i> 1 - {{rowsOnPage}} of {{orders.length}} <i class="fa fa-angle-right"></i></div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <!-- <div class="pagination-box p-3">
+              <div class="pagination">
+                <a href="#">Previous</a>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">3</a>
+                <a href="#">...</a>
+                <a href="#">6</a>
+                <a href="#">Next</a>
+              </div>
+              <div class="float-right"><i class="fa fa-angle-left"></i> 1-10 of 550 <i class="fa fa-angle-right"></i></div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

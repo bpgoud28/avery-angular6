@@ -1,0 +1,531 @@
+{
+  "dashboard": {
+    "tasks": [
+      {
+        "taskName": "T0023 Request for Approval",
+        "responseDate": "07 jul 2018",
+        "assignedDate": "01 jul 2018",
+        "taskStatus": "new",
+        "assignedTo": "me"
+      },
+      {
+        "taskName": "T0014 Request for Packing List",
+        "responseDate": "17 jul 2018",
+        "assignedDate": "28 jun 2018",
+        "taskStatus": "new",
+        "assignedTo": "other"
+      },
+      {
+        "taskName": "T0212 Request for Approval",
+        "responseDate": "01 jul 2018",
+        "assignedDate": "10 jun 2018",
+        "taskStatus": "pending",
+        "assignedTo": "other"
+      },
+      {
+        "taskName": "T0003 Follow up with Crystal for ship mode",
+        "responseDate": "27 jul 2018",
+        "assignedDate": "13 jul 2018",
+        "taskStatus": "pending",
+        "assignedTo": "other"
+      },
+      {
+        "taskName": "T0123 Request for packing list",
+        "responseDate": "24 jun 2018",
+        "assignedDate": "21 jun 2018",
+        "taskStatus": "pending",
+        "assignedTo": "me"
+      }
+    ],
+    "Overview": {
+      "complaints": [
+        {
+          "complaintNo": "ADI AUT 1002",
+          "status": "pending",
+          "complainType": "Quality",
+          "complaintFrom": "katrino Li, CS Mgr Panyu",
+          "complaintDate": "02 jul 2018"
+        },
+        {
+          "complaintNo": "ADI AUT 1087",
+          "status": "pending",
+          "complainType": "Quality",
+          "complaintFrom": "katrino Li, CS Mgr Panyu",
+          "complaintDate": "21 jun 2018"
+        }
+      ],
+      "OrderChangeRequest": [
+        {
+          "orderId": "ADI AUT 1002",
+          "status": "pending",
+          "orderType": "Bill To - Ship To",
+          "orderFrom": "katrino Li, CS Mgr Panyu",
+          "orderDate": "15 jul 2018"
+        },
+        {
+          "orderId": "ADI AUT 9999",
+          "status": "open",
+          "orderType": "Bill To - Ship To",
+          "orderFrom": "Stan Li",
+          "orderDate": "28 jul 2018"
+        }
+      ],
+      "ndp": [
+        {
+          "npdId": "ADI AUT 1234",
+          "status": "pending",
+          "productLine": "Woven",
+          "ndpFrom": "katrino Li, CS Mgr Panyu",
+          "ndpDate": "15 jul 2018"
+        },
+        {
+          "npdId": "ADI AUT 9999",
+          "status": "open",
+          "productLine": "Bill To - Ship To",
+          "ndpFrom": "Stan Li",
+          "ndpDate": "28 jul 2018"
+        }
+      ],
+      "OrderCaptureError": [
+        {
+          "errorId": "OC1001",
+          "email": " joh@bng.com",
+          "errorType": "ERROR ISSUE",
+          "orderDate": "28 jul 2018"
+        },
+        {
+          "errorId": "OC2011",
+          "email": " thomas@bng.com",
+          "errorType": "ERROR ISSUE",
+          "orderDate": "28 jul 2018"
+        }
+      ]
+    }
+  },
+  "chartInfo": [
+    {
+      "openOrders": "25",
+      "completedOrders": "50",
+      "captureErrors": "25",
+      "date": "jul.19"
+    },
+    {
+      "openOrders": "50",
+      "completedOrders": "32",
+      "captureErrors": "28",
+      "date": "jul.20"
+    },
+    {
+      "openOrders": "85",
+      "completedOrders": "25",
+      "captureErrors": "25",
+      "date": "jul.21"
+    },
+    {
+      "openOrders": "75",
+      "completedOrders": "13",
+      "captureErrors": "12",
+      "date": "jul.22"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "orderNo": "ADI AUT 1002",
+      "RBO": "adidas",
+      "program": "ADI AUT",
+      "purchaseOrder": "NS98301",
+      "billTo": "NINGBAO SHEZO",
+      "billToAddress": "3A CHONG YIP",
+      "paymentTerms": "CIA",
+      "productLine": "",
+      "itemNo": "ADI5612347",
+      "shipTo": "NINGBAO SHEZO",
+      "shipMade": "app courier 01",
+      "shipToAddress": "40/1, tanshan",
+      "averySo": "SO1012",
+      "line": "02",
+      "quantity": "100",
+      "uom": "EA",
+      "orderOn": "11-jan-2018",
+      "customerRequestDate": "18-jan-2018",
+      "estimatedShipDate": "25-jan-2018",
+      "orderStatus": "Production Open"
+    },
+    {
+      "id": 2,
+      "orderNo": "Co AU123456",
+      "RBO": "nike",
+      "program": "ADI AUT",
+      "purchaseOrder": "NS98301",
+      "billTo": "NINGBAO SHEZO",
+      "billToAddress": "3A CHONG YIP",
+      "paymentTerms": "CIA",
+      "productLine": "",
+      "itemNo": "ADI3478956",
+      "shipTo": "NINGBAO SHEZO",
+      "shipMade": "app courier 02",
+      "shipToAddress": "999/2-a, dom",
+      "averySo": "SO2345",
+      "line": "56",
+      "quantity": "150",
+      "uom": "EA",
+      "orderOn": "12-jan-2018",
+      "customerRequestDate": "19-jan-2018",
+      "estimatedShipDate": "26-jan-2018",
+      "orderStatus": "Production Open"
+    },
+    {
+      "id": 3,
+      "orderNo": "KL AUT 1905",
+      "RBO": "puma",
+      "program": "ADI AUT",
+      "purchaseOrder": "NS98301",
+      "billTo": "NINGBAO SHEZO",
+      "billToAddress": "3A CHONG YIP",
+      "paymentTerms": "CIA",
+      "productLine": "",
+      "itemNo": "ADI2963685",
+      "shipTo": "NINGBAO SHEZO",
+      "shipMade": "app courier 03",
+      "shipToAddress": "143/11-b, thomas",
+      "averySo": "SO6677",
+      "line": "45",
+      "quantity": "200",
+      "uom": "EA",
+      "orderOn": "13-jan-2018",
+      "customerRequestDate": "20-jan-2018",
+      "estimatedShipDate": "27-jan-2018",
+      "orderStatus": "Picked"
+    },
+    {
+      "id": 4,
+      "orderNo": "ADI AUT11123",
+      "RBO": "reebok",
+      "program": "ADI AUT",
+      "purchaseOrder": "NS98301",
+      "billTo": "NINGBAO SHEZO",
+      "billToAddress": "3A CHONG YIP",
+      "paymentTerms": "CIA",
+      "productLine": "",
+      "itemNo": "ADI1188464",
+      "shipTo": "NINGBAO SHEZO",
+      "shipMade": "app courier 04",
+      "shipToAddress": "456/11/3 - a, joy",
+      "averySo": "SO8789",
+      "line": "69",
+      "quantity": "250",
+      "uom": "EA",
+      "orderOn": "14-jan-2018",
+      "customerRequestDate": "21-jan-2018",
+      "estimatedShipDate": "28-jan-2018",
+      "orderStatus": "Awaiting shipping"
+    },
+    {
+      "id": 5,
+      "orderNo": "NI AUT110",
+      "RBO": "adidas",
+      "program": "ADI AUT",
+      "purchaseOrder": "NS98301",
+      "billTo": "NINGBAO SHEZO",
+      "billToAddress": "3A CHONG YIP",
+      "paymentTerms": "CIA",
+      "productLine": "",
+      "itemNo": "ADI9936447",
+      "shipTo": "NINGBAO SHEZO",
+      "shipMade": "app courier 05",
+      "shipToAddress": "431/45 - b, paul",
+      "averySo": "SO3876",
+      "line": "98",
+      "quantity": "300",
+      "uom": "EA",
+      "orderOn": "15-jan-2018",
+      "customerRequestDate": "22-jan-2018",
+      "estimatedShipDate": "29-jan-2018",
+      "orderStatus": "Production Open"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskId": "TAS11225",
+      "taskType": "Approval",
+      "referenceType": "PO",
+      "referenceNumber": "REF12587",
+      "assignedTo": "Admin 2",
+      "taskStatus": "Closed",
+      "description": "This is test description",
+      "attachment": "",
+      "dueDate": "17th july 2018",
+      "comments": "",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "false"
+    },
+    {
+      "taskId": "TAS55665",
+      "taskType": "Need Information",
+      "referenceType": "Order",
+      "referenceNumber": "REF45789",
+      "taskStatus": "Rejected",
+      "assignedTo": "Admin 2",
+      "description": "This is test description",
+      "comments": "",
+      "dueDate": "22th july 2018",
+      "attachment": "",
+      "id": 2,
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "id": 3,
+      "taskId": "TAS99665",
+      "taskType": "Need Information",
+      "referenceType": "Item",
+      "referenceNumber": "REF56897",
+      "assignedTo": "Admin 3",
+      "taskStatus": "Approved",
+      "description": "This is test description",
+      "attachment": "test.doc",
+      "dueDate": "25th july 2018",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "comment": "This i test comment",
+      "selected": "true"
+    },
+    {
+      "id": 4,
+      "taskId": "TAS3488",
+      "taskType": "Take Action",
+      "referenceType": "Factory",
+      "referenceNumber": "REF44887",
+      "assignedTo": "Admin 4",
+      "taskStatus": "In Progress",
+      "description": "This is test description",
+      "attachment": "test.doc",
+      "dueDate": "19th july 2018",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "comment": "This i test comment",
+      "selected": "true"
+    },
+    {
+      "id": 5,
+      "taskId": "TAS3411",
+      "taskType": "Approval",
+      "referenceType": "RBO",
+      "referenceNumber": "REF78453",
+      "assignedTo": "Admin 1",
+      "taskStatus": "Open",
+      "description": "This is test description",
+      "attachment": "test.doc",
+      "dueDate": "18th july 2018",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "comment": "This i test comment",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Item",
+      "referenceNumber": "REF1234",
+      "taskStatus": "In Progress",
+      "assignedTo": "Admin 2",
+      "description": "Test",
+      "comments": "",
+      "dueDate": "12th jul 2018",
+      "attachment": "",
+      "id": 6,
+      "taskId": "TAS22997",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Item",
+      "referenceNumber": "REF1234",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "Test",
+      "comments": "",
+      "dueDate": "30th jul 2018",
+      "attachment": "",
+      "id": 7,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Reminder",
+      "referenceType": "Order",
+      "referenceNumber": "Ref1111",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "Test",
+      "comments": "",
+      "dueDate": "12th jul 2018",
+      "attachment": "",
+      "id": 8,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Order",
+      "referenceNumber": "Ref222",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 3",
+      "description": "Test",
+      "comments": "",
+      "dueDate": "29th jul 2018",
+      "attachment": "",
+      "id": 9,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Order",
+      "referenceNumber": "asdf",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "asdf",
+      "additionalComments": "",
+      "dueDate": "asdf",
+      "attachment": "",
+      "id": 10,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Reminder",
+      "referenceType": "Factory",
+      "referenceNumber": "asdf",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "asdf",
+      "additionalComments": "",
+      "dueDate": "asdf",
+      "attachment": "",
+      "id": 11,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Reminder",
+      "referenceType": "Item",
+      "referenceNumber": "test",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "test test",
+      "additionalComments": "",
+      "dueDate": "18th jul 2018",
+      "attachment": "",
+      "id": 12,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Order",
+      "referenceNumber": "REF11220099",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "Test",
+      "comments": "",
+      "dueDate": {
+        "year": 2018,
+        "month": 7,
+        "day": 31
+      },
+      "attachment": "",
+      "id": 13,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "Approval",
+      "referenceType": "Order",
+      "referenceNumber": "Ref332255",
+      "taskStatus": "Open",
+      "assignedTo": "Admin 2",
+      "description": "Test desc",
+      "comments": "",
+      "dueDate": "2018-7-31",
+      "attachment": "",
+      "id": 14,
+      "taskId": "TAS25699",
+      "approve": "true",
+      "reject": "true",
+      "reassign": "123",
+      "selected": "true"
+    },
+    {
+      "taskType": "0",
+      "referenceType": "0",
+      "referenceNumber": "",
+      "taskStatus": "Open",
+      "assignedTo": "0",
+      "description": "",
+      "comments": "",
+      "dueDate": "2018-8-7",
+      "attachment": "",
+      "id": 15
+    },
+    {
+      "taskType": "0",
+      "referenceType": "0",
+      "referenceNumber": "",
+      "taskStatus": "Open",
+      "assignedTo": "0",
+      "description": "",
+      "comments": "",
+      "dueDate": "undefined-undefined-undefined",
+      "attachment": "",
+      "id": 16
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "IsLoggedIn": {
+    "status": "true",
+    "email": "test@avery.com",
+    "password": "avery@123"
+  }
+}

@@ -1,0 +1,251 @@
+<div class="task-container">
+    <h3 class="pl-2 float-left">Tasks</h3>
+    <a href="javascript:void(0)"
+       class="btn btn-primary button-danger float-right"
+       (click)="openAddTaskModal(content)">
+      <i class="fa fa-plus-circle"></i> Add Task
+    </a>
+    <div class="clearfix"></div>
+    <div class="task-content mt-4">
+      <table class="table table-grid task-table" [mfData]="tasksList" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+        <thead class="thead-dark">
+          <tr>
+            <th>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         value=""
+                         [checked]="checkboxSelectAll"
+                         (change)="selectAllTasks();" >
+                  <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                </label>
+              </div>
+            </th>
+            <th><mfDefaultSorter by="taskType">Task Type</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="referenceType">Reference Type</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="referenceNumber">Reference Number</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="taskStatus">Task Status</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="assignTo">Assign To</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="description">Description</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="dueDate">Due Date</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="Attachment">Attachment</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="action">Action</mfDefaultSorter></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of mf.data; let i = index;">
+            <td>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="" [checked]="task.selected">
+                  <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                </label>
+              </div>
+            </td>
+            <td>{{task.taskType}}</td>
+            <td>{{task.referenceType}}</td>
+            <td>{{task.referenceNumber}}</td>
+            <td>{{task.taskStatus}}</td>
+            <td>{{task.assignedTo}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.dueDate}}</td>
+            <td><a href="javascript:void(0)"><i class="fa fa-file-image-o"></i></a></td>
+            <td><a href="javascript:void(0)"
+                   (click)="getTaskDetails(task.id, content)">
+                  <i class="fa fa-pencil"></i> Edit
+                </a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="10">
+              <mfBootstrapPaginator ></mfBootstrapPaginator>
+              <div class="float-right"><i class="fa fa-angle-left"></i> 1 - {{rowsOnPage}} of  <i class="fa fa-angle-right"></i></div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <!-- <div class="pagination-box mt-4">
+        <div class="pagination">
+          <a href="#">Previous</a>
+          <a href="#">1</a>
+          <a href="#" class="active">2</a>
+          <a href="#">3</a>
+          <a href="#">...</a>
+          <a href="#">6</a>
+          <a href="#">Next</a>
+        </div>
+        <div class="float-right"><i class="fa fa-angle-left"></i> 1-10 of 550 <i class="fa fa-angle-right"></i></div>
+      </div> -->
+    </div>
+</div>
+
+
+<!-- Modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Task</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-control" [formGroup]="taskForm" (ngSubmit)="onTaskFormSubmit()" #formDir="ngForm">
+      <div class="row">
+        <div class="col-6">
+          <!-- Task Type Field block -->
+          <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Task Type:</label>
+            <select class="form-control mr-2"
+                    formControlName="taskType"
+                    [(ngModel)]="taskDetails.taskType">
+              <option value="0">Please Select</option>
+              <option [selected]="taskDetails.taskType == 'Reminder'" value="Reminder">Reminder</option>
+              <option [selected]="taskDetails.taskType == 'Approval'" value="Approval">Approval</option>
+              <option [selected]="taskDetails.taskType == 'Need Information'" value="Need Information">Need Information</option>
+              <option [selected]="taskDetails.taskType == 'Take Action'" value="Take Action">Take Action</option>
+            </select>
+            <!-- error block -->
+            <div *ngIf="(taskForm.controls.taskType.invalid && taskForm.controls.taskType.touched) || (taskForm.hasError('required', 'taskType') && formDir.submitted)">
+              <span class="text-danger align-middle">
+                <i class="fa fa-warning"></i> Please select Task Type
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Reference Type:</label>
+            <select class="form-control mr-2"
+                    formControlName="referenceType"
+                    [(ngModel)]="taskDetails.referenceType">
+              <option value="0">Please Select</option>
+              <option [selected]="taskDetails.referenceType == 'PO'" value="PO">PO</option>
+              <option [selected]="taskDetails.referenceType == 'Order'" value="Order">Order</option>
+              <option [selected]="taskDetails.referenceType == 'Item'" value="Item">Item</option>
+              <option [selected]="taskDetails.referenceType == 'Factory'" value="Factory">Factory</option>
+              <option [selected]="taskDetails.referenceType == 'RBO'" value="RBO">RBO</option>
+            </select>
+          </div>
+
+          <div class="form-group ">
+            <label for="inputPassword" class="col-form-label">Reference Number:</label>
+            <input type = "text"
+                    class="form-control"
+                    placeholder = "Please enter Reference Number"
+                    formControlName="referenceNumber"
+                    [(ngModel)]="taskDetails.referenceNumber" />
+            <!-- error block -->
+            <div *ngIf="taskForm.controls.referenceNumber.invalid">
+              <span class="text-danger align-middle">
+                <i class="fa fa-warning"></i> Please enter Reference Number
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="formMode !== 'add'">
+            <label for="inputPassword" class="col-form-label">Task Status:</label>
+            <select class="form-control mr-2"
+                    formControlName="taskStatus"
+                    [(ngModel)]="taskDetails.taskStatus">{{taskDetails.taskStatus}}
+              <option value="0">Please Select</option>
+              <option [selected]="taskDetails.taskStatus == 'Open'" value="Open">Open</option>
+              <option [selected]="taskDetails.taskStatus == 'In Progress'" value="In Progress">In Progress</option>
+              <option [selected]="taskDetails.taskStatus == 'Approved'" value="Approved">Approved</option>
+              <option [selected]="taskDetails.taskStatus == 'Rejected'" value="Rejected">Rejected</option>
+              <option [selected]="taskDetails.taskStatus == 'Closed'" value="Closed">Closed</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Assigned To:</label>
+            <select class="form-control mr-2"
+                    formControlName="assignedTo"
+                    [(ngModel)]="taskDetails.assignedTo">
+                <option value="0">Please Select</option>
+                <option [selected]="taskDetails.assignedTo == 'Admin 1'" value="Admin 1">Admin 1</option>
+                <option [selected]="taskDetails.assignedTo == 'Admin 2'" value="Admin 2">Admin 2</option>
+                <option [selected]="taskDetails.assignedTo == 'Admin 3'" value="Admin 3">Admin 3</option>
+                <option [selected]="taskDetails.assignedTo == 'Admin 4'" value="Admin 4">Admin 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Description:</label>
+            <textarea class="form-control nosize" rows="5"
+                      placeholder = "Description"
+                      formControlName="description"
+                      [(ngModel)]="taskDetails.description" ></textarea>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Additional Comments:</label>
+            <textarea class="form-control nosize" rows="5"
+                      placeholder = "Additional Comments"
+                      [(ngModel)] = "task.additionalComments"
+                      id="additionalComments"
+                      name="additionalComments"
+                      #additionalComments = "ngModel"
+                      required ></textarea>
+            <div *ngIf="additionalComments.errors && (additionalComments.dirty || additionalComments.touched)" class="form-control-feedback">
+              <span [hidden]="!additionalComments.errors.required" class="text-danger align-middle">
+                <i class="fa fa-warning"></i> Please enter Additional Comments
+              </span>
+            </div>
+          </div> -->
+
+          <div class="form-group ">
+            <label for="inputPassword" class="col-form-label">Due Date:</label>
+            <div class="input-group date" style="position: relative">
+                <input type = "text"
+                    class="form-control"
+                    placeholder = "Due Date"
+                    formControlName="dueDate"
+                    ngbDatepicker
+                    [navigation]="false"
+                    #d="ngbDatepicker"
+                    (click)="d.toggle()"
+                    [(ngModel)]="taskDetails.dueDate" />
+              <span class="input-group-addon" style="position: absolute;right: 10px;top: 7px;">
+                <span class="fa fa-calendar"></span>
+              </span>
+            </div>
+            <!-- error block -->
+            <div *ngIf="taskForm.controls.dueDate.invalid">
+              <span class="text-danger align-middle">
+                <i class="fa fa-warning"></i> Please select Due Date
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="col-form-label">Attachment:</label>
+            <input type="file"
+                    class="form-control"
+                    formControlName="attachment" />
+          </div>
+
+          <div class="mt-5" *ngIf="formMode !== 'add'">
+            <button class="btn btn-success rounded-0 mr-2" type="button">Approve</button>
+            <button class="btn btn-primary rounded-0 button-danger mr-2" type="button">Reject </button>
+            <button class="btn btn-info rounded-0 mr-2" type="button">Reassign </button>
+          </div>
+
+          <div class="mt-5">
+            <button class="btn btn-primary button-danger mr-2"
+                    type="submit" >
+                    <span *ngIf="formMode =='add'">Create</span>
+                    <span *ngIf="formMode !=='add'">Update</span> Task
+            </button>
+            <button class="btn btn-info rounded-0"
+                    type="button" id="hidePopUpBtn"
+                    data-dismiss="modal">Cancle
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

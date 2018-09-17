@@ -1,0 +1,45 @@
+<header class="container-fluid">
+  <div class="row main-header">
+    <div class="col-3 logo ">
+      <img src="../../assets/images/logo.jpg" />
+    </div>
+    <div class="col-6 search d-flex justify-content-center">
+      <form class="form-inline">
+        <select class="form-control mr-2">
+          <option>All</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="search-input">
+          <input type="text" class="form-control w-100" placeholder="Search by order, facroty">
+          <i class="fa fa-search search-icon"></i>
+        </div>
+      </form>
+    </div>
+    <div class="col-3 header-right">
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item help mr-2">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-1x"></i>
+            <i class="fa fa-question fa-stack-1x text-white"></i>
+          </span>
+          <div class="help-icon"></div>
+        </li>
+        <li class="nav-item notifications mr-2">
+          <div>
+            <i class="fa fa-bell fa-stack fa-lg"></i>
+            <!-- <span class="count">10</span> -->
+          </div>
+        </li>
+        <li class="nav-item user-profile dropdown">
+          <img src="../../assets/images/user-icon.png" />
+          <div class="dropdown-content">
+            <div><a href="javascript:void(0)" [routerLink]="['/login']"><i class="fa fa-sign-out"></i>Logout</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

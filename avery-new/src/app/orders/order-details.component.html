@@ -1,0 +1,230 @@
+<div class="order-details-container mt-4 mb-4">
+  <div class="order-details-heading ml-3">
+    <h3>Orders Details ({{ orderInfo?.orderNo }})</h3>
+    <p class="fs-14">Dashboard / Order Details
+      <a class="float-right back-btn" [routerLink]="['/orders']" href="javascript:void(0)">
+        <span class="font-semi-bold"><i class="fa fa-angle-left"></i> Back to Orders</span></a>
+    </p>
+  </div>
+  <div class="order-details-content">
+    <div class="row order-info p-3">
+      <div class="col-4">
+        <table class="w-100 ord-table-info">
+          <tr>
+            <td>Order No.</td>
+            <td>: {{ orderInfo?.orderNo }}</td>
+          </tr>
+          <tr>
+            <td>RBO</td>
+            <td>: {{ orderInfo?.RBO }}</td>
+          </tr>
+          <tr>
+            <td>Program</td>
+            <td>: {{ orderInfo?.purchaseOrder }}</td>
+          </tr>
+          <tr>
+            <td>Purchase Order (#)</td>
+            <td>: {{ orderInfo?.purchaseOrder }}</td>
+          </tr>
+          <tr>
+            <td>Billed to</td>
+            <td>: {{ orderInfo?.billTo }}</td>
+          </tr>
+          <tr>
+            <td>Billed to Address</td>
+            <td>: {{ orderInfo?.billToAddress }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-4">
+        <table class="w-100 ord-table-info">
+          <tr>
+            <td>Payment Terms.</td>
+            <td>: {{ orderInfo?.paymentTerms }}</td>
+          </tr>
+          <tr>
+            <td>Product Line</td>
+            <td>: {{ orderInfo?.productLine }}</td>
+          </tr>
+          <tr>
+            <td>Item No.</td>
+            <td>: {{ orderInfo?.itemNo }}</td>
+          </tr>
+          <tr>
+            <td>Ship To</td>
+            <td>: {{ orderInfo?.shipTo }}</td>
+          </tr>
+          <tr>
+            <td>Ship Made</td>
+            <td>: {{ orderInfo?.shipMade }}</td>
+          </tr>
+          <tr>
+            <td>Ship to Address</td>
+            <td>: {{ orderInfo?.shipToAddress }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-4">
+        <table class="w-100 ord-table-info">
+          <tr>
+            <td>Avery SO #</td>
+            <td>: {{ orderInfo?.averySo }}</td>
+          </tr>
+          <tr>
+            <td>Line #</td>
+            <td>: {{ orderInfo?.line }}</td>
+          </tr>
+          <tr>
+            <td>Quality</td>
+            <td>: {{ orderInfo?.quantity }}</td>
+          </tr>
+          <tr>
+            <td>UoM</td>
+            <td>: {{ orderInfo?.uom }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="dates-info w-100 p-3">
+        <h3>Key Dates</h3>
+        <div class="row">
+          <div class="col-4">
+            <div class="date-item mb-3">
+              Customer Request Date <br>
+              <span class="font-semi-bold">26-06-2018 5:00 PM</span>
+            </div>
+            <p class="order-date-info">Ordered Date : <span class="font-semi-bold">15-Jun-2018</span></p>
+          </div>
+          <div class="col-4">
+            <div class="date-item mb-3 mb-3">
+              Estimated Ship Date <br>
+              <span class="font-semi-bold">27-06-2018 5:oo PM</span>
+            </div>
+            <p class="order-date-info">Order Status : <span class="font-semi-bold">{{ orderInfo.orderStatus }}</span></p>
+          </div>
+          <div class="col-4">
+            <div class="date-item mb-3">
+              Original Promise Date <br>
+              <span class="font-semi-bold">26-06-2018 5:00 PM</span>
+            </div>
+            <a class="btn btn-primary button-danger float-right"
+               [routerLink]="['/tasks/add']"
+               href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add Task </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbable-panel">
+    <div class="tabbable-line">
+      <ul class="nav nav-tabs mt-2 pl-4">
+        <li class="active pb-1"><a href="javascript:void(0)">Order Status,</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="w-100 p-2">
+            <a class="float-right" href="javascript:void(0)">&nbsp;</a>
+            <div class="clearfix"></div>
+          </div>
+          <table class="w-100">
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Date</th>
+                <th>Next Status</th>
+                <th>Normal Lead Time <br>(In Hrs)</th>
+                <th>Actual Lead Time (In Hrs)</th>
+                <th>Cummulative Delay(Hrs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Picked</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Ship Confirm</td>
+                <td>02:00:00</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="delay">
+                <td>Released to Warehouse</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Picked</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>03:00:00 <span class="font-semi-bold"> &nbsp;<i class="fa fa-clock-o"></i> Delayed</span></td>
+              </tr>
+              <tr>
+                <td>Awaiting Shipping</td>
+                <td>26-Jan-18 04:12</td>
+                <td>Released to Warehouse</td>
+                <td>02:00:00</td>
+                <td>03:00:00</td>
+                <td>03:00:00</td>
+              </tr>
+              <tr>
+                <td>Released to Warehouse</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Picked</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>03:00:00</td>
+              </tr>
+              <tr>
+                <td>Packing</td>
+                <td>26-Jan-18 04:12</td>
+                <td>Awaiting Shipping</td>
+                <td>02:00:00</td>
+                <td>03:00:00</td>
+                <td>04:00:00</td>
+              </tr>
+              <tr>
+                <td>Cutting & Folding</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Packing</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>03:00:00</td>
+              </tr>
+              <tr>
+                <td>Weaving</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Cutting & Folding</td>
+                <td>02:00:00</td>
+                <td>03:00:00</td>
+                <td>04:00:00</td>
+              </tr>
+              <tr>
+                <td>Production Open</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Picked</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>03:00:00</td>
+              </tr>
+              <tr>
+                <td>Supply Eligible</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Production Open</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>09:00:00</td>
+              </tr>
+              <tr class="delay">
+                <td>Booked</td>
+                <td>27-Jan-18 04:12</td>
+                <td>Picked</td>
+                <td>02:00:00</td>
+                <td>08:00:00</td>
+                <td>03:00:00 <span class="font-semi-bold"> &nbsp;<i class="fa fa-clock-o"></i> Delayed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

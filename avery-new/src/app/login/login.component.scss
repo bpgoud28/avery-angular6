@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 0;
+}
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-area {
+  width: 25%;
+  height: 70%;
+  background: linear-gradient(160deg,#dbdada,#000000);
+  .logo {
+    padding: 40px 0;
+    text-align: center;
+  }
+  .form-group {
+    margin: 30px auto;
+    &.submit-btn {
+     margin-top: 70px; 
+     .form-control, .input-group-addon {
+       background: #d9261c;
+       color: #fff;
+     }
+    }
+  }
+  .form-control {
+    height: 40px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-right: 0;
+  }
+  .input-group-addon {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: #fff;
+  }
+}
+@media (max-width: 768px) {
+  .login-area {
+    width: 100%;
+    height: 100%;
+  }
+  .logo img {
+    //width: 100%;
+  }
+}

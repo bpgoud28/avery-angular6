@@ -1,0 +1,7 @@
+{
+  "/rest/v1/checkout/cart/*": "/$1",
+  "/rest/v1/*": "/$1",
+  "/address/validateLine": "/validateLine",
+  "/address/selectLine": "/selectLine",
+  "/checkout/:getVipUser": "/getVipUser"
+}
